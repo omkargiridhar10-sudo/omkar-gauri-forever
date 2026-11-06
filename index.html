@@ -1,1 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omkar ❤️ Gauri Forever</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;display:flex;align-items:center;
+ justify-content:center;text-align:center;padding:20px;
+ font-family:Georgia,serif;color:white;
+ background:linear-gradient(145deg,#300018,#8b1748,#e45b82);
+}
+.card{
+ max-width:500px;width:100%;padding:30px 20px;
+ border:1px solid #ffffff66;border-radius:25px;
+ background:#ffffff18;box-shadow:0 15px 50px #20001066;
+}
+.heart{font-size:65px;animation:beat 1s infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+h1{font-size:36px}
+.counter{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0}
+.unit{background:#ffffff22;border-radius:15px;padding:17px 5px}
+.number{font-size:32px;font-weight:bold}
+.label{font-size:13px;margin-top:5px}
+.message{font-size:18px;line-height:1.6;margin:20px 0}
+.quote{font-style:italic;font-size:16px;line-height:1.5}
+footer{margin-top:25px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="card">
+<div class="heart">❤️</div>
+<h1>Omkar & Gauri</h1>
+<p>Our forever began on 2 May 2026 💕</p>
+<p>We've been together for...</p>
 
+<div class="counter">
+<div class="unit"><div class="number" id="days">0</div><div class="label">DAYS</div></div>
+<div class="unit"><div class="number" id="hours">0</div><div class="label">HOURS</div></div>
+<div class="unit"><div class="number" id="minutes">0</div><div class="label">MINUTES</div></div>
+<div class="unit"><div class="number" id="seconds">0</div><div class="label">SECONDS</div></div>
+</div>
+
+<div class="message">
+To my Gauri ❤️<br>
+Every moment with you is a beautiful memory.
+You make my world brighter, my heart happier,
+and my life more special. I choose you, today
+and every day. ♾️
+</div>
+
+<div class="quote" id="quote"></div>
+
+<footer>Made with endless love by Omkar ❤️<br>Omkar ♾️ Gauri</footer>
+</div>
+
+<script>
+const start = new Date("2026-05-02T10:00:00+12:00").getTime();
+
+function update(){
+ const diff=Math.max(0,Date.now()-start);
+ document.getElementById("days").textContent=Math.floor(diff/86400000);
+ document.getElementById("hours").textContent=Math.floor(diff/3600000)%24;
+ document.getElementById("minutes").textContent=Math.floor(diff/60000)%60;
+ document.getElementById("seconds").textContent=Math.floor(diff/1000)%60;
+}
+const quotes=[
+'"You are my today and all of my tomorrows." ❤️',
+'"In a sea of people, my eyes will always search for you."',
+'"Every love story is beautiful, but ours is my favourite."',
+'"Together is my favourite place to be." 💕',
+'"I still fall for you, every single day."',
+'"You and me, always and forever." ♾️'
+];
+let q=0;
+function changeQuote(){
+ document.getElementById("quote").textContent=quotes[q];
+ q=(q+1)%quotes.length;
+}
+update();changeQuote();
+setInterval(update,1000);
+setInterval(changeQuote,5000);
+</script>
+</body>
+</html>
